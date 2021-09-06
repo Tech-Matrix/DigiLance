@@ -28,18 +28,35 @@ const CompanyHeader = () => (
     <p className="channel-list__header__text">
       Digilance
       <ChannelSearch />
-      
+      <ChannelList
+        filters={{}}
+        channelRenderFilterFn={() => {}}
+        List={(listProps) => <TeamChannelList {...listProps} team="team" />}
+        Preview={(previewProps) => (
+          <TeamChannelPreview {...previewProps} type="team" />
+        )}
+      />
+      <ChannelList
+        filters={{}}
+        channelRenderFilterFn={() => {}}
+        List={(listProps) => <TeamChannelList {...listProps} team="messaging" />}
+        Preview={(previewProps) => (
+          <TeamChannelPreview {...previewProps} type="messaging" />
+        )}
+      />
     </p>
   </div>
 ); 
 
 const ChannelListContainer = () => {
-  return( <>
+  return (
+    <>
       <SideBar />
-      <div className = 'channel-list__list__wrapper'>
+      <div className="channel-list__list__wrapper">
         <CompanyHeader />
+
       </div>
-  </>
+    </>
   );
 };
 
